@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Bienvenida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> <!-- Fuente manuscrita -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            margin: 0;
+            background-image: url('img codigo.jpg'); /* Cambia 'img/fondo.jpg' por la ruta de tu imagen */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 300px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 15px;
+            background-color: #14258a;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #232421;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            p {
+                font-size: 1.2em;
+            }
+            input, button {
+                width: 70%;
+                font-size: 1em;
+            }
+        }
+
+        /* Estilos para el Footer */
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-family: 'Pacifico', cursive;
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 5px; /* Espaciado entre las letras */
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenidos</h1>
+    <p>Coloca tu nombre para empezar:</p>
+    <input type="text" id="nombreUsuario" placeholder="Introduce tu nombre" />
+    <button onclick="iniciarJuego()">Comenzar</button>
+
+    <!-- Footer -->
+    <div class="footer">
+        Developer Edison Urrego
+    </div>
+
+    <script>
+        function iniciarJuego() {
+            const nombre = document.getElementById("nombreUsuario").value;
+            if (nombre) {
+                localStorage.setItem('nombreUsuario', nombre); // Guardar el nombre en localStorage
+                window.location.href = "juego_ahorcado.html"; // Redirigir a la página del juego
+            } else {
+                alert("Por favor, ingresa tu nombre."); // Mensaje de alerta si no se introduce el nombre
+            }
+        }
+    </script>
+</body>
+</html>
